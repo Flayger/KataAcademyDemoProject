@@ -91,15 +91,18 @@ public class Main {
         return result.toString();
     }
 
-    public static int romanToInt(String s) {
+    public static int romanToInt(String s) throws Exception {
         int result = 0;
 
         Map<Character, Integer> m = new HashMap<>();
         m.put('I', 1);
         m.put('V', 5);
         m.put('X', 10);
+        m.put(' ', -1000);
 
         for (int i = 0; i < s.length(); i++) {
+            if(m.get(s.charAt(i))== -1000)
+                throw new Exception("roman number with spaces");
             if (i < s.length() - 1 && m.get(s.charAt(i)) < m.get(s.charAt(i + 1))) {
                 result -= m.get(s.charAt(i));
             } else {
