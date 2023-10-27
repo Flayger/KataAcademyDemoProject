@@ -38,7 +38,7 @@ public class Main {
                 if (isOneOperand)
                     throw new Exception("only one operand supported");
                 isOneOperand = true;
-            } else if(input.charAt(i) != ' '){
+            } else if (input.charAt(i) != ' ') {
                 throw new Exception("detected unsupported symbol");
             }
         }
@@ -101,7 +101,7 @@ public class Main {
         m.put(' ', -1000);
 
         for (int i = 0; i < s.length(); i++) {
-            if(m.get(s.charAt(i))== -1000)
+            if (m.get(s.charAt(i)) == -1000)
                 throw new Exception("roman number with spaces");
             if (i < s.length() - 1 && m.get(s.charAt(i)) < m.get(s.charAt(i + 1))) {
                 result -= m.get(s.charAt(i));
