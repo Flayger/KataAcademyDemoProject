@@ -18,7 +18,6 @@ public class Main {
     static boolean isRoman = false;
 
     public static String calc(String input) throws Exception {
-        input = input.replaceAll("\\s", "");
         int first;
         int second;
         String result = "";
@@ -39,7 +38,7 @@ public class Main {
                 if (isOneOperand)
                     throw new Exception("only one operand supported");
                 isOneOperand = true;
-            } else {
+            } else if(input.charAt(i) != ' '){
                 throw new Exception("detected unsupported symbol");
             }
         }
@@ -48,8 +47,8 @@ public class Main {
             char ch = input.charAt(i);
 
             if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-                first = isArabic ? Integer.parseInt(input.substring(0, i)) : romanToInt(input.substring(0, i));
-                second = isArabic ? Integer.parseInt(input.substring(i + 1)) : romanToInt(input.substring(i + 1));
+                first = isArabic ? Integer.parseInt(input.substring(0, i).trim()) : romanToInt(input.substring(0, i).trim());
+                second = isArabic ? Integer.parseInt(input.substring(i + 1).trim()) : romanToInt(input.substring(i + 1).trim());
                 if (first > 10 || first == 0 || second > 10 || second == 0) {
                     throw new Exception("numbers out of bounds");
                 }
