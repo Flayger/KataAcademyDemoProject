@@ -43,6 +43,8 @@ public class Main {
             }
         }
 
+        if(!isRoman && !isArabic)
+            throw new Exception("input is empty string");
         if(!isOneOperand)
             throw new Exception("no operand detected");
 
