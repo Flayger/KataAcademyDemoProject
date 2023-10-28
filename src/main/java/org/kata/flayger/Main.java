@@ -43,6 +43,9 @@ public class Main {
             }
         }
 
+        if(!isOneOperand)
+            throw new Exception("no operand detected");
+
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
 
