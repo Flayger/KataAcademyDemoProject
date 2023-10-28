@@ -77,9 +77,9 @@ public class Main {
         return result;
     }
 
-    public static String intToRoman(int num) {
+    public static String intToRoman(int num) throws Exception {
         if (num == 0)
-            return "0";
+            throw new Exception("Результатом работы калькулятора с римскими числами могут быть только положительные числа");
         int[] intValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
